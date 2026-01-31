@@ -26,11 +26,32 @@ nav {
     align-items: center;
 }
 
-nav .logo {
+/* Container to hold the image and text side-by-side */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between logo and text */
+    text-decoration: none;
+}
+
+/* This forces the 1024x1024 image to fit the navbar */
+.nav-icon {
+    height: 50px; /* Adjust this number to make logo bigger/smaller */
+    width: auto;  /* Maintains the square aspect ratio */
+    border-radius: 50%; /* Optional: Makes the logo circular. Remove if you want square. */
+}
+
+.logo-text {
     font-size: 1.5rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
+    color: white;
+}
+
+/* Ensure the hover effect works on the text */
+.logo-container:hover .logo-text {
+    color: var(--accent);
 }
 
 nav ul {
