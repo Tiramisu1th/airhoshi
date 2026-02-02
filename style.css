@@ -17,13 +17,75 @@ body {
 }
 
 /* Navigation */
+/* BASE STYLES (Desktop) */
 nav {
-    background-color: var(--primary);
-    color: white;
-    padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 50px;
+    padding: 1rem 2rem;
+    background-color: #333; /* Adjust to match your current theme */
+    position: relative;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: white; /* Adjust to match your theme */
+}
+
+/* Hide the hamburger button on desktop */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white; /* Color of the bars */
+    transition: all 0.3s ease-in-out;
+}
+
+/* MOBILE STYLES (Triggered on screens smaller than indicated px) */
+@media screen and (max-width: 890px) {
+    .menu-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        flex-direction: column;
+        background-color: #333; 
+        width: 100%;
+        text-align: center;
+        max-height: 0; 
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        
+        padding: 0;
+        gap: 0;
+        margin: 0;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        max-height: 500px; /* Large enough to show all links when open */
+    }
+
+    .nav-menu li {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
 }
 
 /* Container to hold the image and text side-by-side */
